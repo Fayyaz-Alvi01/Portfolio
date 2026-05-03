@@ -40,9 +40,36 @@
     color: $text;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
 
     .logo-bracket {
       color: $primary;
+    }
+
+    .react-icon {
+      font-size: 1.4rem;
+      color: #61dafb;
+      animation: spin 3s linear infinite;
+    }
+
+    .brand-text {
+      display: inline;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 0.95rem;
+
+      .react-icon {
+        font-size: 1.2rem;
+      }
     }
   }
 
@@ -170,5 +197,14 @@
         width: 100%;
       }
     }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

@@ -1,0 +1,159 @@
+@import '../../scss/variables';
+
+.project-card {
+  background: $dark-card;
+  border: 1px solid $border;
+  border-radius: $border-radius-lg;
+  padding: 1.6rem;
+  position: relative;
+  transition: $transition;
+  animation: fadeUp 0.6s ease forwards;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+
+  &:hover {
+    border-color: rgba(108, 99, 255, 0.45);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+  }
+
+  &.featured {
+    border-color: rgba(108, 99, 255, 0.3);
+    background: linear-gradient(
+      145deg,
+      rgba(108, 99, 255, 0.05),
+      $dark-card
+    );
+  }
+
+  // Featured badge
+  &__featured-badge {
+    position: absolute;
+    top: -1px;
+    right: 1.2rem;
+    background: linear-gradient(135deg, $primary, $accent);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.22rem 0.75rem;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  // Header row
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .project-card__icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+  }
+
+  // Category badge
+  &__category {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.22rem 0.75rem;
+    border-radius: 6px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    &.mern {
+      background: rgba(0, 212, 170, 0.1);
+      color: $accent;
+      border: 1px solid rgba(0, 212, 170, 0.22);
+    }
+
+    &.mean {
+      background: rgba(108, 99, 255, 0.1);
+      color: $primary-light;
+      border: 1px solid rgba(108, 99, 255, 0.22);
+    }
+  }
+
+  // Title
+  &__title {
+    font-family: $font-display;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: $text;
+    margin-bottom: 0.65rem;
+    line-height: 1.35;
+  }
+
+  // Description
+  &__desc {
+    font-size: 0.86rem;
+    color: $text-muted;
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+    flex: 1;
+  }
+
+  // Tech pills
+  &__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.3rem;
+
+    .tech-pill {
+      background: $dark-2 !important;
+      border: 1px solid $border !important;
+      color: $text-muted !important;
+      font-size: 0.7rem !important;
+      border-radius: 5px !important;
+      padding: 0 0.5rem !important;
+      line-height: 1.8 !important;
+      transition: $transition;
+
+      &:hover {
+        border-color: $primary !important;
+        color: $primary-light !important;
+      }
+    }
+  }
+
+  // Action buttons
+  &__links {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: auto;
+
+    .btn-ghost {
+      background: transparent !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
+      color: $text-muted !important;
+      font-size: 0.82rem !important;
+      transition: $transition;
+
+      &:hover {
+        border-color: $primary !important;
+        color: $primary-light !important;
+      }
+    }
+
+    .btn-primary {
+      background: $primary !important;
+      border-color: $primary !important;
+      font-size: 0.82rem !important;
+      transition: $transition;
+
+      &:hover {
+        background: $primary-light !important;
+        border-color: $primary-light !important;
+      }
+    }
+  }
+}

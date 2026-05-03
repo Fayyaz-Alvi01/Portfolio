@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Button } from 'antd';
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
+import { FaReact } from 'react-icons/fa';
 import './navbar.scss';
 
 const navLinks = [
@@ -23,16 +24,20 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => setMenuOpen(false), [location]);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMenuOpen(false);
+  }, [location]);
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar__inner">
-        <div className="navbar__brand">
+        <NavLink to="/" className="navbar__brand">
           <span className="logo-bracket">&lt;</span>
-          MFA Portfolio
+          <FaReact className="react-icon" />
+          <span className="brand-text">MFA Portfolio</span>
           <span className="logo-bracket">/&gt;</span>
-        </div>
+        </NavLink>
 
         <ul className={`navbar__links ${menuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
