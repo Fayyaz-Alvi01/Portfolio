@@ -1,0 +1,174 @@
+@import '../../scss/variables';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0.9rem 1.2rem;
+  transition: $transition-slow;
+
+  &__inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    background: rgba(11, 13, 21, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 0.8rem 1.2rem;
+    backdrop-filter: blur(12px);
+  }
+
+  &.scrolled {
+    padding-top: 0.5rem;
+
+    .navbar__inner {
+      background: rgba(11, 13, 21, 0.92);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.22);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+  }
+
+  &__brand {
+    font-family: $font-display;
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: $text;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    .logo-bracket {
+      color: $primary;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    list-style: none;
+
+    a {
+      color: $text-muted;
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+      padding: 0.25rem 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, $primary, $accent);
+        transition: $transition;
+        border-radius: 2px;
+      }
+
+      &:hover,
+      &.active {
+        color: $text;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__resume-btn {
+    height: 34px !important;
+    border-radius: 999px !important;
+    border: none !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-inline: 1rem !important;
+    background: linear-gradient(120deg, $primary, $accent) !important;
+    box-shadow: 0 10px 18px rgba(108, 99, 255, 0.25);
+
+    &:hover {
+      filter: brightness(1.07);
+      transform: translateY(-1px);
+    }
+  }
+
+  &__contact-btn {
+    height: 34px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: $text !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    padding-inline: 1rem !important;
+
+    &:hover {
+      border-color: rgba(0, 212, 170, 0.5) !important;
+      color: $accent !important;
+      transform: translateY(-1px);
+    }
+  }
+
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: $text;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.75rem;
+
+    &__inner {
+      padding: 0.7rem 0.85rem;
+    }
+
+    &__toggle {
+      display: block;
+    }
+
+    &__links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100vh;
+      width: min(290px, 88vw);
+      background: rgba(19, 19, 31, 0.98);
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 5.6rem 1.4rem 1.6rem;
+      gap: 1.35rem;
+      transition: right 0.35s ease;
+      border-left: 1px solid $border;
+      backdrop-filter: blur(6px);
+
+      &.open {
+        right: 0;
+      }
+
+      a {
+        font-size: 0.92rem;
+        letter-spacing: 0.06em;
+      }
+
+      .navbar__resume-btn,
+      .navbar__contact-btn {
+        width: 100%;
+      }
+    }
+  }
+}

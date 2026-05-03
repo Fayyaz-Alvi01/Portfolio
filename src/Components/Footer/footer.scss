@@ -1,0 +1,117 @@
+@import '../../scss/variables';
+
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2.4rem 1.2rem 1.1rem;
+  margin-top: 3.5rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+
+  &__inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr auto;
+    align-items: center;
+    gap: 1.2rem;
+    animation: fadeUp 0.8s ease both;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  &__brand-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  &__brand {
+    font-family: $font-display;
+    font-size: 1.22rem;
+    font-weight: 800;
+
+    .bracket {
+      color: $primary;
+    }
+  }
+
+  &__tagline {
+    font-size: 0.86rem;
+    color: $text-muted;
+    max-width: 360px;
+  }
+
+  &__meta {
+    @media (max-width: 900px) {
+      margin-top: 0.4rem;
+    }
+  }
+
+  &__copy {
+    font-size: 0.83rem;
+    color: $text-muted;
+
+    strong {
+      color: $text;
+    }
+  }
+
+  &__heart {
+    color: $primary;
+    font-size: 12px;
+  }
+
+  &__location {
+    margin-top: 0.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(139, 138, 168, 0.78);
+  }
+
+  &__socials {
+    display: flex;
+    gap: 0.65rem;
+
+    @media (max-width: 900px) {
+      justify-content: center;
+      margin-top: 0.25rem;
+    }
+
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: $dark-card;
+      border: 1px solid $border;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $text-muted;
+      font-size: 0.93rem;
+      transition: $transition;
+      box-shadow: inset 0 0 0 1px transparent;
+
+      &:hover {
+        border-color: rgba(108, 99, 255, 0.52);
+        color: $text;
+        background: linear-gradient(135deg, rgba(108, 99, 255, 0.24), rgba(0, 212, 170, 0.2));
+        transform: translateY(-2px);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 10px 22px rgba(0, 0, 0, 0.24);
+      }
+    }
+  }
+
+  &__bottom {
+    max-width: 1160px;
+    margin: 1.4rem auto 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: center;
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    color: rgba(139, 138, 168, 0.76);
+  }
+}

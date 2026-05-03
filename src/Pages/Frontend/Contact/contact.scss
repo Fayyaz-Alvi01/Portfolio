@@ -1,0 +1,179 @@
+@import '../../../scss/variables';
+
+.contact {
+  padding-top: 8.1rem;
+  animation: fadeIn 0.6s ease both;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 2.4rem;
+    align-items: start;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__info {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.024), rgba(255, 255, 255, 0));
+    border: 1px solid $border;
+    border-radius: $border-radius-lg;
+    padding: 1.5rem;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  &__intro {
+    margin-bottom: 2rem;
+    h3 {
+      font-family: $font-display;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+    }
+    p {
+      color: $text-muted;
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.1rem;
+    background: $dark-card;
+    border: 1px solid $border;
+    border-radius: $border-radius;
+    transition: $transition;
+
+    &:hover {
+      border-color: $primary;
+      transform: translateX(4px) translateY(-1px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    &__icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: rgba(108,99,255,0.12);
+      border: 1px solid rgba(108,99,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $primary;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    &__label {
+      font-size: 0.72rem;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    a, span {
+      font-size: 0.88rem;
+      color: $text;
+      font-weight: 500;
+      transition: $transition;
+    }
+
+    a:hover { color: $accent; }
+  }
+
+  &__availability {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: $accent;
+    font-weight: 500;
+
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: $accent;
+      animation: pulse-glow 2s infinite;
+    }
+  }
+
+  &__form-card {
+    background: $dark-card;
+    border: 1px solid $border;
+    border-radius: $border-radius-lg;
+    padding: 1.7rem;
+    animation: fadeUp 0.85s ease forwards;
+
+    h3 {
+      font-family: $font-display;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: $text;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 1rem;
+
+      @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  // Ant Design overrides
+  .ant-form-item-label label {
+    color: $text-muted !important;
+    font-size: 0.85rem !important;
+  }
+
+  .custom-input {
+    background: $dark-2 !important;
+    border-color: $border !important;
+    color: $text !important;
+    border-radius: 8px !important;
+
+    &::placeholder { color: rgba(139,138,168,0.5) !important; }
+    &:hover, &:focus {
+      border-color: $primary !important;
+      box-shadow: 0 0 0 2px rgba(108,99,255,0.15) !important;
+    }
+  }
+
+  textarea.custom-input { resize: none; }
+
+  .contact-submit-btn {
+    height: 48px !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: linear-gradient(120deg, $primary, $accent) !important;
+    box-shadow: 0 14px 24px rgba(108, 99, 255, 0.26);
+
+    &:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+  }
+}

@@ -1,0 +1,177 @@
+@import '../../../scss/variables';
+
+.projects {
+  padding-top: 8.1rem;
+  animation: fadeIn 0.6s ease both;
+
+  &__filters {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+
+    .filter-btn {
+      background: $dark-card;
+      border: 1px solid $border;
+      color: $text-muted;
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: $transition;
+      font-family: $font-body;
+
+      &:hover, &.active {
+        background: linear-gradient(120deg, $primary, rgba(108,99,255,0.84));
+        border-color: transparent;
+        color: #fff;
+        box-shadow: 0 10px 18px rgba(108, 99, 255, 0.24);
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: $dark-card;
+    border: 1px solid $border;
+    border-radius: $border-radius-lg;
+    padding: 1.6rem;
+    position: relative;
+    transition: $transition;
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(108,99,255,0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    &:hover {
+      border-color: rgba(108,99,255,0.4);
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2), 0 0 20px rgba(0,212,170,0.1);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &.featured {
+      border-color: rgba(108,99,255,0.25);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -1px; right: 1.2rem;
+      background: linear-gradient(135deg, $primary, $accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.7rem;
+      border-radius: 0 0 8px 8px;
+      letter-spacing: 0.03em;
+    }
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      .project-icon { font-size: 1.5rem; }
+
+      .category-tag {
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 0.2rem 0.7rem;
+        border-radius: 6px;
+        letter-spacing: 0.05em;
+
+        &.mern {
+          background: rgba(0,212,170,0.1);
+          color: $accent;
+          border: 1px solid rgba(0,212,170,0.2);
+        }
+        &.mean {
+          background: rgba(108,99,255,0.1);
+          color: $primary-light;
+          border: 1px solid rgba(108,99,255,0.2);
+        }
+      }
+    }
+
+    &__title {
+      font-family: $font-display;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      color: $text;
+    }
+
+    &__desc {
+      font-size: 0.87rem;
+      color: $text-muted;
+      line-height: 1.72;
+      margin-bottom: 1.2rem;
+    }
+
+    &__tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.3rem;
+
+      .tech-pill {
+        background: $dark-2 !important;
+        border: 1px solid $border !important;
+        color: $text-muted !important;
+        font-size: 0.72rem;
+        border-radius: 5px;
+      }
+    }
+
+    &__links {
+      display: flex;
+      gap: 0.7rem;
+
+      .project-btn {
+        height: 34px;
+        border-radius: 8px;
+        font-size: 0.78rem;
+        font-weight: 600;
+
+        &--ghost {
+          background: transparent;
+          border-color: rgba(255,255,255,0.12);
+          color: $text-muted;
+
+          &:hover {
+            border-color: rgba(108,99,255,0.5) !important;
+            color: $text !important;
+          }
+        }
+
+        &--primary {
+          border-color: transparent;
+          background: linear-gradient(120deg, $primary, $accent);
+
+          &:hover {
+            filter: brightness(1.04);
+          }
+        }
+      }
+    }
+  }
+}
