@@ -1,17 +1,5 @@
 {
-  "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
-  "framework": "vite",
-  "outputDirectory": "dist",
-  "public": "public",
-  "env": {
-    "VITE_ENVIRONMENT": "production"
-  },
   "routes": [
-    {
-      "src": "/[^.]+$",
-      "destination": "/index.html"
-    }
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
